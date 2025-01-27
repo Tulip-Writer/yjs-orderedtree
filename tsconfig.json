@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "allowJs": true,
+      "checkJs": true,
+      "declaration": true,
+      "emitDeclarationOnly": true,
+      "outDir": "dist/types",
+      "target": "ES2021",
+      "module": "node16",
+      "moduleResolution": "nodenext",
+    },
+    "include": ["src/**/*"]
+  }
