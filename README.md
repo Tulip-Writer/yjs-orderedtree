@@ -1,6 +1,7 @@
 # yjs-orderedtree
 
-An ordered tree class for yjs. Lets you use a Y.Map like an ordered tree with insert, delete, and move operations. The children are ordered and the position of a child amongst its sibling can be manipulated. yjs-orderedtree uses logic and code https://madebyevan.com/algos/crdt-mutable-tree-hierarchy/ and https://madebyevan.com/algos/crdt-fractional-indexing/ to facilitate this.
+An ordered tree class for yjs. Lets you use a Y.Map like an ordered tree with insert, delete, and move operations. The children are ordered and the position of a child amongst its sibling can be manipulated. 
+yjs-orderedtree uses logic and code https://madebyevan.com/algos/crdt-mutable-tree-hierarchy/ and https://madebyevan.com/algos/crdt-fractional-indexing/ to facilitate this.
 
 
 # How it works
