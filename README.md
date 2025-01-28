@@ -1,9 +1,7 @@
 # yjs-orderedtree
 
-An ordered tree class for yjs. Lets you use a Y.Map like an ordered tree with insert, delete, and move operations. The children are ordered and the position of a child amongst its sibling can be manipulated. 
-
+An ordered tree class for yjs. Lets you use a Y.Map like an ordered tree with insert, delete, and move operations. The children are ordered and the position of a child amongst its sibling can be manipulated.  
 yjs-orderedtree uses logic and code https://madebyevan.com/algos/crdt-mutable-tree-hierarchy/ and https://madebyevan.com/algos/crdt-fractional-indexing/ to facilitate this.
-
 
 # How it works
 
@@ -15,7 +13,9 @@ A Y.Map associated with a YTree must have a certain structure. It doesn't absolu
 
 # Installation
 
-TODO
+```
+npm i yjs-orderedtree
+```
 
 # Usage
 
@@ -73,13 +73,13 @@ Take a look at the API reference :)
 
 # API Reference
 
-## checkForYTree
+## `function` checkForYTree
 
-`function checkForYTree(Y.Map):boolean`
+`checkForYTree(Y.Map):boolean`
 
 Checks if the Ymap has been initialized for YTree operations. It specifically checks if root node exists. This should be done any time you want to load a ytree and not create it.
 
-## YTree
+## `class` YTree
 
 `const yTree = new YTree(yMap);`
 
@@ -87,34 +87,77 @@ YTree uses https://madebyevan.com/algos/crdt-mutable-tree-hierarchy/ and https:/
 
 It uses them to implement an ordered tree data structure, on top of YJS https://github.com/yjs/yjs, that maintains synchronization and consistency across multiple clients.
 
-### `constructor(Y.Map): YTree`
+#### `constructor(Y.Map): YTree`
 
 Constructor is required to be called with a Y.Map instance that is bound to a Y.Doc.
 
 The YMap is required to be empty or initialized.  If given an empty (uninitialized) YMap then it initializes the YMap for YTree operations by creating a root node. If you don't want to accidentally create a Ytree then use checkForYTree beforehand to ensure that a YTree has been initialized.
 
-### `createNode`
+#### `generateNodeKey(): string`
 
-### `deleteNodeAndDescendants`
+Generates a globally unique node key
 
-### `moveChildToParent`
+#### `createNode(parentKey: string, nodeKey: string, value: object | boolean | string | number | Uint8Array | Y.AbstractType): void`
 
-### `setNodeValueFromKey`
+Creates a Node with the given parent and the given value
 
-### `getNodeValueFromKey`
+```javascript
+yTree.createNode("root", yTree.generateNodeKey(), "a_value");
 
-### `getNodeChildrenFromKey`
+const yArray = new Y.Array();
+yTree.createNode("root", yTree.generateNodeKey(), yArray);
 
-### `getNodeParentFromKey`
+yTree.createNode("root", "yourGloballyUniqueKey", 1234);
+```
 
-### `getAllDescendants`
+#### `deleteNodeAndDescendants(nodeKey: string): void`
 
-### `setNodeOrderToStart`
+Deletes the node and its descendants
 
-### `setNodeOrderToEnd`
+#### `moveChildToParent(childKey: string, parentKey: string): void`
 
-### `setNodeAfter`
+Reparents or moves a child to a new parent 
 
-### `setNodeBefore`
+#### `setNodeValueFromKey(nodeKey: string, value: object | boolean | string | number | Uint8Array | Y.AbstractType<any>): void`
 
-### `sortChildrenByOrder`
+Sets a value on a node
+
+#### `getNodeValueFromKey(nodeKey: string): object | boolean | string | number | Uint8Array | Y.AbstractType<any>`
+
+Gets a value from a node
+
+#### `getNodeChildrenFromKey(nodeKey: string): Array<string>`
+
+Get a list of keys of the node's children from the virtual (computed) map
+
+#### `getNodeParentFromKey(nodeKey: string): string`
+
+Get the key of the parent of the node from the virtual (computed) map
+
+#### `getAllDescendants(nodeKey: string, allDescendants: Array<string>): void`
+
+Gets all the descendants of the node.
+
+#### `setNodeOrderToStart(nodeKey: string): void`
+
+Sets the nodes's order index (position) below its siblings
+
+#### `setNodeOrderToEnd(nodeKey: string): void`
+
+Sets the node's order index (position) above its siblings
+
+#### `setNodeAfter(nodeKey: string, target: string): void`
+
+Sets the the node's order index (position) to be right after the target
+
+The node and target must share the same parent.
+
+#### `setNodeBefore(nodeKey: string, target: string): void`
+
+Sets the the node's order index (position) to be right before the target
+
+The node and target must share the same parent.
+
+#### `sortChildrenByOrder(children: Array<string>, parentKey: string): Array<string>`
+
+Gets an array of node keys sorted by the node positions.
