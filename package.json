@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "yjs-orderedtree",
-  "version": "1.0.0",
+  "version": "1.0.1-0",
   "description": "An ordered tree class for yjs. Lets you use a Y.Map like an ordered tree with insert, delete, and move operations. The children are ordered and the position of a child amongst its sibling can be manipulated",
   "types": "./dist/types/index.d.ts",
   "exports": {
