@@ -29,7 +29,7 @@ const registry =
 
 try {
   execSync(
-    `npm version ${version} --allow-same-version ${registry} && npm publish --access public ${force} ${registry}`
+    `npm version ${version} --allow-same-version ${registry} && npm publish --access public ${force} ${registry} --tag beta`
   );
 } catch (exception) {
   setPackageJSONVersions(originalVersion, version);
