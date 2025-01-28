@@ -17,7 +17,8 @@ const packageJSON = getPackageJSON();
 const originalVersion = `${packageJSON.version}`;
 const version = semver.inc(
   process.env.NODE_ENV === 'development' ? packageJSON.developmentVersion : packageJSON.version,
-  'prerelease'
+  'prerelease',
+  "beta"
 );
 
 const force = process.env.NODE_ENV === "development" ? "--force" : "";
