@@ -11,6 +11,10 @@ It holds a virtual map that is recalculated everytime the tree changes. That vir
 
 A Y.Map associated with a YTree must have a certain structure. It doesn't absolutely check for this structure, it only checks that the mandatory root node exists. 
 
+# Demo
+
+![demo-yjs-orderedtree](https://github.com/user-attachments/assets/fea1f247-ac2e-4aa6-84e6-77e184b7c177)
+
 # Installation
 https://www.npmjs.com/package/yjs-orderedtree
 ```
