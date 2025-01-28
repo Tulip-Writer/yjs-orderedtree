@@ -515,7 +515,7 @@ describe('index.js', () => {
   })
 
 
-  test('performance test', (done) => {
+  test('performance test - horizontal', (done) => {
     const yDocOne = new Y.Doc();
     const yDocTwo = new Y.Doc();
 
