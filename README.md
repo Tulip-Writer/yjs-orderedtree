@@ -12,6 +12,7 @@ It holds a virtual map that is recalculated everytime the tree changes. That vir
 A Y.Map associated with a YTree must have a certain structure. It doesn't absolutely check for this structure, it only checks that the mandatory root node exists. 
 
 # Demo
+Here you have two clients, A and B. While they are offline they both make a change that is valid in their separate local context. However if both these change are done in a shared context (which happens when both clients come online), a cycle would be caused in the tree. But as you can see, that is prevented and resolved by the mutable tree hierarchy logic.
 
 ![demo-yjs-orderedtree](https://github.com/user-attachments/assets/fea1f247-ac2e-4aa6-84e6-77e184b7c177)
 
