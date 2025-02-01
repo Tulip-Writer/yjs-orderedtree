@@ -166,3 +166,12 @@ The node and target must share the same parent.
 #### `sortChildrenByOrder(children: Array<string>, parentKey: string): Array<string>`
 
 Gets an array of node keys sorted by the node positions.
+
+#### `observe(function()): void`
+
+Adds a function to callback list, function is called whenever YTree is modified (children added/deleted or reordered)
+
+#### `unobserve(function()): void`
+
+Removes a function from callback list
+ 
