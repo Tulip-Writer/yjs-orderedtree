@@ -88,7 +88,9 @@ Checks if the Ymap has been initialized for YTree operations. It specifically ch
 
 ## `class` YTree
 
-`const yTree = new YTree(yMap);`
+```javascript
+const yTree = new YTree(yMap);
+```
 
 YTree uses https://madebyevan.com/algos/crdt-mutable-tree-hierarchy/ and https://madebyevan.com/algos/crdt-fractional-indexing/
 
