@@ -76,7 +76,13 @@ const yTree = new YTree(yMap);
 
 ## Using the tree
 
-Take a look at the API reference :)
+Get started by creating a child of the root node.
+
+```javascript
+yTree.createNode("root", yTree.generateNodeKey(), "a_value");
+```
+
+And then take a look at the API reference :)
 
 # API Reference
 
