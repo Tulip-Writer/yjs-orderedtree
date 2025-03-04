@@ -108,7 +108,8 @@ Generates a globally unique node key
 
 #### `createNode(parentKey: string, nodeKey: string, value: object | boolean | string | number | Uint8Array | Y.AbstractType): void`
 
-Creates a Node with the given parent and the given value
+Creates a Node with the given parent and the given value. 
+All YTree objects have a default node (the root node) with the key "root".
 
 ```javascript
 yTree.createNode("root", yTree.generateNodeKey(), "a_value");
